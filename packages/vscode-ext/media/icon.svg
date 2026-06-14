@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- 背景: 深蓝圆角矩形 -->
+  <rect width="128" height="128" rx="24" fill="#1e293b"/>
+
+  <!-- 盾牌: 代表"守护" -->
+  <path d="M64 20 L100 34 L100 64 Q100 92 64 108 Q28 92 28 64 L28 34 Z"
+        fill="#0ea5e9" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- 锁体: 代表"文件锁" -->
+  <rect x="50" y="60" width="28" height="24" rx="3" fill="#1e293b"/>
+  <!-- 锁梁 -->
+  <path d="M55 60 L55 52 Q55 44 64 44 Q73 44 73 52 L73 60"
+        fill="none" stroke="#1e293b" stroke-width="4"/>
+  <!-- 锁孔 -->
+  <circle cx="64" cy="70" r="3" fill="#0ea5e9"/>
+  <rect x="62.5" y="70" width="3" height="8" fill="#0ea5e9"/>
+</svg>
