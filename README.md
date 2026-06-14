@@ -61,7 +61,9 @@ D:\fileguard\                                  ← 本仓库
 
 > **推荐**：直接从 Release 下载 vsix 安装（无需自己编译）。
 
-1. 下载 [vscode-file-guard-1.0.0.vsix](https://github.com/howiitlee/fileguard/releases/download/v1.0.0/vscode-file-guard-1.0.0.vsix)
+1. 下载 `vscode-file-guard-1.0.0.vsix`（选一个源）：
+   - 🇨🇳 **国内用户（推荐）**：[Gitee Release](https://gitee.com/howiitlee/file-guard/releases/download/v1.0.0/vscode-file-guard-1.0.0.vsix)
+   - 🌏 海外/有代理：[GitHub Release](https://github.com/howiitlee/fileguard/releases/download/v1.0.0/vscode-file-guard-1.0.0.vsix)
 2. 安装：
    ```bash
    code --install-extension vscode-file-guard-1.0.0.vsix
