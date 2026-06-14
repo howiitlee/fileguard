@@ -199,7 +199,7 @@
     "@types/vscode": "^1.70.0",
     "@types/node": "^20.0.0",
     "typescript": "^5.4.0",
-    "esbuild": "^0.23.0"
+    "esbuild": "^0.28.1"
   },
   "icon": "media/icon.png",
   "readme": "README.md"
