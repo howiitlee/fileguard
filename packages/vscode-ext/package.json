@@ -3,20 +3,20 @@
   "displayName": "FileGuard — Cross-Tool Delete Guard",
   "description": "防止多个 AI 工具(VS Code/Claude Code/Codex/ZCode)协同开发时误删文件。自动锁、拦截删除、信任分级、fs-watchdog 兜底恢复、审计日志。",
   "version": "1.0.0",
-  "publisher": "howiit",
+  "publisher": "howiitlee",
   "license": "MIT",
   "engines": {
     "vscode": "^1.70.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/howiit/fileguard.git"
+    "url": "https://github.com/howiitlee/fileguard.git"
   },
-  "homepage": "https://github.com/howiit/fileguard#readme",
+  "homepage": "https://github.com/howiitlee/fileguard#readme",
   "bugs": {
-    "url": "https://github.com/howiit/fileguard/issues"
+    "url": "https://github.com/howiitlee/fileguard/issues"
   },
-  "qna": "https://github.com/howiit/fileguard/discussions",
+  "qna": "https://github.com/howiitlee/fileguard/discussions",
   "galleryBanner": {
     "color": "#1e293b",
     "theme": "dark"
@@ -24,12 +24,12 @@
   "badges": [
     {
       "url": "https://img.shields.io/badge/license-MIT-blue.svg",
-      "href": "https://github.com/howiit/fileguard",
+      "href": "https://github.com/howiitlee/fileguard",
       "description": "License: MIT"
     },
     {
       "url": "https://img.shields.io/badge/tools-VS%20Code%20%7C%20Claude%20%7C%20Codex%20%7C%20ZCode-orange.svg",
-      "href": "https://github.com/howiit/fileguard",
+      "href": "https://github.com/howiitlee/fileguard",
       "description": "跨工具支持"
     }
   ],

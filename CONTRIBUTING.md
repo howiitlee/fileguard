@@ -5,7 +5,7 @@
 ## 开发环境
 
 ```bash
-git clone https://github.com/howiit/fileguard.git
+git clone https://github.com/howiitlee/fileguard.git
 cd fileguard
 npm install        # 安装所有 workspace 依赖
 npm run build      # 编译所有包

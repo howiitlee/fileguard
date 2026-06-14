@@ -20,7 +20,7 @@
 
 ## 执行
 
-辱骂、骚扰或其他不可接受行为可通过 [GitHub Issues](https://github.com/howiit/fileguard/issues) 报告。所有投诉都会被及时审查和调查。
+辱骂、骚扰或其他不可接受行为可通过 [GitHub Issues](https://github.com/howiitlee/fileguard/issues) 报告。所有投诉都会被及时审查和调查。
 
 ## 出处
 
