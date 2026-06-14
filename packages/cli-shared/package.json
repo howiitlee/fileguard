@@ -1,0 +1,20 @@
+{
+  "name": "@fileguard/cli-shared",
+  "version": "1.0.0",
+  "description": "FileGuard 公共库: 全局锁注册表 + API + fg 命令",
+  "license": "MIT",
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
+  "bin": {
+    "fg": "out/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "type-check": "tsc --noEmit -p ./"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}

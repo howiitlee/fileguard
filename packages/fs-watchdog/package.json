@@ -1,0 +1,24 @@
+{
+  "name": "@fileguard/fs-watchdog",
+  "version": "1.0.0",
+  "description": "FileGuard 文件系统兜底守护进程 — 监控删除事件, 命中锁定文件则弹通知恢复",
+  "license": "MIT",
+  "main": "out/index.js",
+  "bin": {
+    "fg-watchdog": "out/main.js"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "type-check": "tsc --noEmit -p ./",
+    "start": "node out/main.js",
+    "install-service": "node out/install.js"
+  },
+  "dependencies": {
+    "@fileguard/cli-shared": "1.0.0",
+    "chokidar": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}

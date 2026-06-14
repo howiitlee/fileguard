@@ -1,0 +1,19 @@
+{
+  "name": "fileguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "跨工具防误删守卫 — VS Code 扩展 + CLI agent hook + fs watchdog",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "type-check": "npm run type-check --workspaces",
+    "clean": "node scripts/clean.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  }
+}

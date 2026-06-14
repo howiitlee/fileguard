@@ -1,0 +1,203 @@
+{
+  "name": "vscode-file-guard",
+  "displayName": "FileGuard — Cross-Tool Delete Guard",
+  "description": "防止多个 AI 工具(VS Code/Claude Code/Codex/ZCode)协同开发时误删文件。自动锁、拦截删除、信任分级、fs-watchdog 兜底恢复、审计日志。",
+  "version": "1.0.0",
+  "publisher": "howiit",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howiit/fileguard.git"
+  },
+  "homepage": "https://github.com/howiit/fileguard#readme",
+  "bugs": {
+    "url": "https://github.com/howiit/fileguard/issues"
+  },
+  "qna": "https://github.com/howiit/fileguard/discussions",
+  "galleryBanner": {
+    "color": "#1e293b",
+    "theme": "dark"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/license-MIT-blue.svg",
+      "href": "https://github.com/howiit/fileguard",
+      "description": "License: MIT"
+    },
+    {
+      "url": "https://img.shields.io/badge/tools-VS%20Code%20%7C%20Claude%20%7C%20Codex%20%7C%20ZCode-orange.svg",
+      "href": "https://github.com/howiit/fileguard",
+      "description": "跨工具支持"
+    }
+  ],
+  "categories": [
+    "Other",
+    "SCM Providers",
+    "Linters"
+  ],
+  "keywords": [
+    "ai-agents",
+    "claude-code",
+    "codex",
+    "multi-agent",
+    "file-lock",
+    "delete-protection",
+    "collaboration",
+    "guard",
+    "zcode",
+    "cursor"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "fileguard.lock",
+        "title": "File Guard: 锁定当前文件",
+        "category": "File Guard",
+        "icon": "$(lock)"
+      },
+      {
+        "command": "fileguard.unlock",
+        "title": "File Guard: 解锁当前文件",
+        "category": "File Guard",
+        "icon": "$(unlock)"
+      },
+      {
+        "command": "fileguard.unlockAll",
+        "title": "File Guard: 解锁本窗口全部文件",
+        "category": "File Guard",
+        "icon": "$(unlock)"
+      },
+      {
+        "command": "fileguard.list",
+        "title": "File Guard: 列出所有锁定文件",
+        "category": "File Guard",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "fileguard.toggleAutoGuard",
+        "title": "File Guard: 开关自动锁（打开即锁）",
+        "category": "File Guard",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "fileguard.showAuditLog",
+        "title": "File Guard: 查看审计日志",
+        "category": "File Guard",
+        "icon": "$(output)"
+      },
+      {
+        "command": "fileguard.manageTrust",
+        "title": "File Guard: 管理 Agent 信任等级",
+        "category": "File Guard",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "fileguard._broadcast",
+        "title": "(internal) File Guard: 跨扩展广播",
+        "category": "File Guard",
+        "enablement": "false"
+      },
+      {
+        "command": "fileguard._query",
+        "title": "(internal) File Guard: 跨扩展查询",
+        "category": "File Guard",
+        "enablement": "false"
+      }
+    ],
+    "configuration": {
+      "title": "File Guard",
+      "properties": {
+        "fileguard.autoGuard": {
+          "type": "boolean",
+          "default": true,
+          "description": "自动锁定在当前窗口打开（尤其是有未保存修改）的文件。关闭后仅靠显式 lock 命令保护。"
+        },
+        "fileguard.guardDirtyOnly": {
+          "type": "boolean",
+          "default": false,
+          "description": "自动锁模式下只锁定有未保存修改的脏文档，已保存的文档不上锁。"
+        },
+        "fileguard.ttlHours": {
+          "type": "number",
+          "default": 24,
+          "minimum": 1,
+          "description": "锁的存活时间（小时），超时自动清理。"
+        },
+        "fileguard.silent": {
+          "type": "boolean",
+          "default": false,
+          "description": "静默模式：拦截删除时不弹窗，只记日志。"
+        },
+        "fileguard.interceptDelete": {
+          "type": "boolean",
+          "default": true,
+          "description": "拦截资源管理器/命令行的删除操作（onWillDeleteFiles）。这是守卫的核心，建议保持开启。"
+        },
+        "fileguard.ownExtensionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "认为属于同一团队的扩展 ID 列表。这些扩展上报的锁会显示为'友军'而非'其他扩展'。"
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "fileguard._broadcast"
+        },
+        {
+          "command": "fileguard._query"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "fileguard.lock",
+          "when": "resourceScheme == file && !fileguard.locked",
+          "group": "navigation@100"
+        },
+        {
+          "command": "fileguard.unlock",
+          "when": "resourceScheme == file && fileguard.locked",
+          "group": "navigation@100"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "fileguard.lock",
+          "when": "!explorerResourceIsFolder",
+          "group": "fileguard@1"
+        },
+        {
+          "command": "fileguard.unlock",
+          "when": "!explorerResourceIsFolder",
+          "group": "fileguard@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "type-check": "tsc --noEmit -p ./",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "@fileguard/cli-shared": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}

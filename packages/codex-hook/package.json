@@ -1,0 +1,13 @@
+{
+  "name": "@fileguard/codex-hook",
+  "version": "1.0.0",
+  "description": "FileGuard 的 OpenAI Codex CLI hook 脚本(仅 Bash 拦截)",
+  "license": "MIT",
+  "main": "hook.js",
+  "scripts": {
+    "install-hook": "node install.js"
+  },
+  "dependencies": {
+    "@fileguard/cli-shared": "1.0.0"
+  }
+}
