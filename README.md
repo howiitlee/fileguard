@@ -57,6 +57,19 @@ D:\fileguard\                                  ← 本仓库
 
 **核心保证**：fs-watchdog 对**所有**工具都有效——即使前置 hook 漏了，删除发生后秒级恢复（git 优先，备份兜底）。
 
+## 📦 安装 VS Code 扩展
+
+> **推荐**：直接从 Release 下载 vsix 安装（无需自己编译）。
+
+1. 下载 [vscode-file-guard-1.0.0.vsix](https://github.com/howiitlee/fileguard/releases/download/v1.0.0/vscode-file-guard-1.0.0.vsix)
+2. 安装：
+   ```bash
+   code --install-extension vscode-file-guard-1.0.0.vsix
+   ```
+   或 VS Code 里 `Ctrl+Shift+P` → `Extensions: Install from VSIX` → 选下载的文件
+
+> 注：扩展会自动拉起锁机制。CLI 工具（`fg` 命令）、watchdog、hooks 仍需从源码编译（见下方"快速开始"）。
+
 ## 快速开始
 
 ### 1. 编译所有包
