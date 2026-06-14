@@ -187,10 +187,10 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "compile": "node esbuild.config.mjs --production",
+    "watch": "node esbuild.config.mjs",
     "type-check": "tsc --noEmit -p ./",
-    "package": "vsce package"
+    "package": "@vscode/vsce package --no-dependencies"
   },
   "dependencies": {
     "@fileguard/cli-shared": "1.0.0"
@@ -198,7 +198,9 @@
   "devDependencies": {
     "@types/vscode": "^1.70.0",
     "@types/node": "^20.0.0",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "esbuild": "^0.23.0"
   },
-  "icon": "media/icon.png"
+  "icon": "media/icon.png",
+  "readme": "README.md"
 }
