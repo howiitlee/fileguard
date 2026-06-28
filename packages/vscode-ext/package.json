@@ -196,7 +196,7 @@
     "@fileguard/cli-shared": "1.0.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.70.0",
+    "@types/vscode": "^1.125.0",
     "@types/node": "^20.0.0",
     "typescript": "^5.4.0",
     "esbuild": "^0.23.0"
